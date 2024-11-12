@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+ 
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="MassTransit.Abstractions" Version="8.3.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\SupplyChain.Common.Domain\SupplyChain.Common.Domain.csproj" />
+	</ItemGroup>
+</Project>

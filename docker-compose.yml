@@ -1,0 +1,49 @@
+services:
+  supplychain.api:
+    image: ${DOCKER_REGISTRY-}supplychainapi
+    build:
+      context: .
+      dockerfile: src/API/SupplyChain.API/Dockerfile
+    depends_on:
+      - supplychain.database
+
+  supplychain.database:
+    image: postgres:latest
+    container_name: SupplyChain.Database
+    environment:
+      - POSTGRES_DB=supplychain
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  supplychain.seq:
+    image: datalust/seq:latest
+    container_name: SupplyChain.Seq
+    environment:
+      - ACCEPT_EULA=Y
+    ports:
+      - 5341:5341
+      - 8081:80
+
+  supplychain.redis:
+    image: redis:latest
+    container_name: SupplyChain.Redis
+    restart: always
+    ports:
+      - 6379:6379
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: nbsa@civicmdsg.com.ph
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "8180:80"
+    depends_on:
+      - supplychain.database
+    volumes:
+      - ./.containers/pgadmin:/var/lib/pgadmin
+

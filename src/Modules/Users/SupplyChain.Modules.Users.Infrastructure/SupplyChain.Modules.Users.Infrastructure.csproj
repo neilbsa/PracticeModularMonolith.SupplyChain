@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SupplyChain.Common.Infrastructure\SupplyChain.Common.Infrastructure.csproj" />
+    <ProjectReference Include="..\SupplyChain.Modules.Users.Application\SupplyChain.Modules.Users.Application.csproj" />
+    <ProjectReference Include="..\SupplyChain.Modules.Users.Presentation\SupplyChain.Modules.Users.Presentation.csproj" />
+    <ProjectReference Include="..\SupplyChain.Modules.Users.PublicApi\SupplyChain.Modules.Users.PublicApi.csproj" />
+
+  </ItemGroup>
+</Project>

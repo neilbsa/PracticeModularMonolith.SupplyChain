@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SupplyChain.Common.Application\SupplyChain.Common.Application.csproj" />
+    <ProjectReference Include="..\..\Users\SupplyChain.Modules.Users.PublicApi\SupplyChain.Modules.Users.PublicApi.csproj" />
+    <ProjectReference Include="..\..\Warehouses\SupplyChain.Modules.Warehouses.PublicApi\SupplyChain.Modules.Warehouses.PublicApi.csproj" />
+    <ProjectReference Include="..\SupplyChain.Modules.Orders.Domain\SupplyChain.Modules.Orders.Domain.csproj" />
+    <ProjectReference Include="..\SupplyChain.Modules.Orders.IntegrationEvents\SupplyChain.Modules.Orders.IntegrationEvents.csproj" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Orders\GetOrderById\" />
+    <Folder Include="Orders\GetOrders\" />
+  </ItemGroup>
+</Project>
