@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.DependencyInjection;
-using SupplyChain.Common.Domain;
 using SupplyChain.Modules.Orders.Domain.Orders;
 using static Dapper.SqlMapper;
 
@@ -17,6 +16,8 @@ internal sealed class OrdersEntityConfigurations : IEntityTypeConfiguration<Orde
     {
         builder.ToTable("orders");
         builder.HasKey(z => z.Id);
+
+
         builder.Property(z => z.CustomerId)
             .HasConversion(z => z.Value, value => new CustomerId(value));
         builder.Property(z => z.WarehouseId)
@@ -28,23 +29,6 @@ internal sealed class OrdersEntityConfigurations : IEntityTypeConfiguration<Orde
             .OnDelete(DeleteBehavior.Cascade);
 
 
-
-
-    }
-}
-
-
-internal sealed class OrderDetailConfiguration : IEntityTypeConfiguration<OrderDetail>
-{
-    public void Configure(EntityTypeBuilder<OrderDetail> builder)
-    {
-
-        builder.ToTable("order_details");
-        builder.HasKey(z => z.Id);
-        builder.HasOne(z=>z.Order)
-            .WithMany(z=>z.OrderDetails)
-            .HasForeignKey(z => z.OrderId);
-        builder.Property(z => z.OrderQuantity).HasConversion(z => z.Value, value => new Quantity(value));
 
 
     }

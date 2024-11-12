@@ -27,7 +27,7 @@ public sealed class OrderDetail : Entity
 
     public static OrderDetail Create(Order OrderId, Guid CatalogId, decimal Quantity)
     {
-        var orderDetail = new OrderDetail(Guid.Empty, CatalogId, new Quantity(Quantity));
+        var orderDetail = new OrderDetail(Guid.NewGuid(), CatalogId, new Quantity(Quantity));
         orderDetail.Raise(new NewOrderDetailAddedDomainEvent(CatalogId, OrderId.WarehouseId.Value,Quantity));
         return orderDetail;
     }

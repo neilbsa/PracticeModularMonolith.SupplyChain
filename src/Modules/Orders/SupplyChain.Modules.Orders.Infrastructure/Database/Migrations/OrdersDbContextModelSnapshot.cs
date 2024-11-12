@@ -47,7 +47,6 @@ namespace SupplyChain.Modules.Orders.Infrastructure.Database.Migrations
             modelBuilder.Entity("SupplyChain.Modules.Orders.Domain.Orders.OrderDetail", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("ID");
 
